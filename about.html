@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About RSAP – Riders Safety Advocates of the Philippines</title>
+  <link rel="icon" type="image/png" href="images/rsaplogo.png"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+  .text-stroke-blue {
+    -webkit-text-stroke: 1px #0046FF;
+    -webkit-text-fill-color: white;
+  }
+
+  .text-stroke-red {
+    -webkit-text-stroke: 1px #FF0000; /* red outline */
+    -webkit-text-fill-color: white;      /* text color */
+  }
+</style>
+</head>
+<body class="bg-[#0b1120] text-white scroll-smooth">
+
+  <!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur border-b border-blue-900">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="images/rsaplogo.png" alt="RSAP Logo" class="h-12 w-auto">
+      <span class="text-2xl font-bold text-[#0046FF]">
+        RSAP – Riders Safety Advocates of the Philippines
+      </span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-8 text-[#FF0000] font-semibold">
+      <a href="index.html" class="hover:text-blue-400 transition">Home</a>
+      <a href="#programs" class="hover:text-blue-400 transition">Programs</a>
+      <a href="#blogs" class="hover:text-blue-400 transition">Blogs</a>
+      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+      <a href="#" class="bg-[#0046FF] hover:bg-blue-800 px-5 py-2 rounded-lg transition text-white">
+        Join
+      </a>
+    </nav>
+
+<button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="h-7 w-7" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+<!-- Mobile Menu -->
+<div id="mobile-overlay" 
+     class="fixed inset-0 bg-black/50 hidden z-40"></div>
+
+<!-- Mobile Slide Menu -->
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-72 
+            bg-black 
+            shadow-2xl
+            transform translate-x-full 
+            transition-transform duration-300 
+            z-[9999] md:hidden">
+
+  <div class="bg-black p-6 space-y-6 text-red-500 font-bold">
+    <button id="close-menu" class="text-red-600 text-3xl">&times;</button>
+
+    <a href="index.html" class="block text-red-700 hover:text-blue-400">Home</a>
+    <a href="#programs" class="block text-red-700 hover:text-blue-400">Programs</a>
+    <a href="#blogs" class="block text-red-700 hover:text-blue-400">Blogs</a>
+    <a href="#contact" class="block text-red-700 hover:text-blue-400">Contact</a>
+    <a href="#" class="block bg-blue-700 text-center py-2 rounded-lg hover:bg-blue-800 text-red-700">
+      Join
+    </a>
+  </div>
+</div>
+</header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen flex items-center justify-center text-center px-6 bg-cover bg-center bg-fixed"
+           style="background-image: url('images/rsapcover.jpg');">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="relative z-10 max-w-6xl mt-16 mx-auto bg-white/30 backdrop-blur-md rounded-xl shadow-xl p-10 md:p-14" data-aos="fade-up">
+      <h1 class="text-5xl md:text-6xl font-bold text-blue-800 mb-6">About <span class="text-red-600">RSAP</span></h1>
+      <p class="text-xl font-semibold text-gray-100 mb-8">
+        RSAP – Riders Safety Advocates of the Philippines is a national motorcycle advocacy organization committed to road safety awareness, traffic law compliance, defensive riding education, and rider protection across the Philippines.
+      </p>
+      <a href="#" class="bg-blue-700 hover:bg-blue-800 px-8 py-4 rounded-lg font-semibold transition">Join the Movement</a>
+    </div>
+  </section>
+
+  <!-- ABOUT RSAP -->
+  <section id="about" class="py-24 bg-[#111827] text-center px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-bold text-blue-700 mb-12" data-aos="fade-up">Who We Are</h2>
+      <p class="text-gray-100 text-xl leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+        RSAP (Riders Safety Advocate of the Philippines) is a nationally recognized motorcycle advocacy organization dedicated to advancing road safety, promoting strict compliance with traffic laws, and fostering responsible riding practices throughout the Philippines. Through evidence-based educational programs, public campaigns, and community engagement, RSAP aims to cultivate a culture of safety, accountability, and professionalism within the Philippine motorcycling community.
+      </p>
+    </div>
+  </section>
+
+  <!-- MISSION & VISION -->
+   <section class="relative min-h-screen flex items-center justify-center text-center px-6 bg-cover bg-center bg-fixed"
+           style="background-image: url('images/rsapcover.jpg');">
+    <div class="absolute inset-0 bg-black/70"></div>
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-4xl font-extrabold text-blue-500 mb-12" data-aos="fade-up">Mission & Vision</h2>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="text-left text-gray-200" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="text-2xl font-extrabold mb-4 text-red-500">Mission</h3>
+          <p class="text-xl">
+            To significantly reduce motorcycle-related accidents in the Philippines by fostering disciplined and responsible riding, ensuring strict adherence to traffic laws, and providing continuous, evidence-based education and training for riders.
+          </p>
+        </div>
+        <div class="text-left text-gray-200" data-aos="fade-up" data-aos-delay="400">
+          <h3 class="text-2xl font-extrabold mb-4 text-red-500">Vision</h3>
+          <p class="text-xl">
+            To build a nationwide culture of motorcycle safety, law-abiding riding, and advocacy that empowers every Filipino rider to ride responsibly, confidently, and safely.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER SECTION -->
+  <section id="founder" class="py-24 bg-gray-800 text-center px-6">
+    <div class="max-w-6xl mx-auto">
+      <h3 class="text-4xl font-bold text-blue-500 mb-12" data-aos="fade-up"><span class="text-red-700">Founder:</span> Colonel Bonifacio Laqui Bosita Ret.</h3>
+      <div class="flex flex-col md:flex-row items-center gap-8">
+        <!-- Image Column -->
+        <div class="w-full md:w-1/2 flex items-center justify-center">
+          <div class="w-96 h-96 rounded-full overflow-hidden bg-gray-700 flex items-center justify-center">
+            <img src="images/col.bosita.png" 
+                alt="Col. Bonifacio Bosita" 
+                class="w-full h-full object-cover"
+                data-aos="fade-up" 
+                data-aos-delay="100"
+            data-aos="fade-up" data-aos-delay="100">
+          </div>
+        </div>
+        <!-- Bio Column -->
+        <div class="text-xl w-full md:w-1/2 text-left text-gray-200 space-y-4" data-aos="fade-up" data-aos-delay="200">
+          <p>
+            Colonel <strong>Bonifacio Laqui Bosita</strong> (born November 30, 1966) is a Filipino motorcycle rights activist, retired police officer,
+            politician, and founder of <strong>Riders Safety Advocates of the Philippines (RSAP)</strong>, an organization dedicated to promoting
+            road safety and protecting the rights and welfare of motorcyclists nationwide.
+          </p>
+          <p>
+            A graduate of Civil Engineering and holder of a Master’s degree in Management (major in Development and Security), Bosita served
+            with the Philippine National Police (PNP), including assignments with the Highway Patrol Group. His advocacy work led him to found RSAP
+            and build a strong online community through his YouTube channel “Colonel Bosita, RSAP,” educating the public on traffic rules and riders’ rights.
+          </p>
+          <p>
+            Bosita also served as a representative of the <strong>1‑Rider Partylist</strong> in the Philippine House of Representatives from
+            2022 to 2025, advocating for riders’ rights and road safety reforms within government.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT CTA -->
+ <section class="relative min-h-[50vh] flex items-center justify-center text-center px-6 bg-cover bg-center bg-fixed" data-aos="Auto-Fade"
+   style="background-image: url('images/rsapcover2.png');">
+ <div class="absolute inset-0 bg-black/50"></div>
+
+    <div class="max-w-5xl mx-auto" data-aos="fade-up">
+      <h3 class="text-4xl font-extrabold text-[#FF0000] mb-8 text-stroke-red">Get in Touch</h3>
+      <p class="text-white font-semibold text-xl mb-8">Reach out to RSAP for membership, partnership, or inquiries about our programs.</p>
+      <a href="#" class="bg-blue-700 hover:bg-blue-800 px-10 py-4 rounded-lg font-bold transition">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-gray-300 py-12 relative">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+      <div class="flex items-center space-x-4 md:w-1/4">
+        <img src="images/rsaplogo.png" alt="RSAP Logo" class="w-12 h-12 object-contain">
+        <span class="text-blue-600 text-xl font-bold">RSAP <span class="text-red-600 text-sm font-semibold">- Riders Safety Advocate of the Philippines</span></span>
+      </div>
+      <div class="flex-1 grid md:grid-cols-3 gap-8">
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Sitemap</h4>
+          <ul class="space-y-2">
+            <li><a href="index.html" class="hover:text-blue-400">Home</a></li>
+            <li><a href="#about" class="hover:text-blue-400">About</a></li>
+            <li><a href="#blogs" class="hover:text-blue-400">Blogs</a></li>
+            <li><a href="#founder" class="hover:text-blue-400">Founder</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-lg font-semibold text-white mb-4">Legal & Policies</h4>
+          <ul class="space-y-2">
+            <li><a href="/terms" class="hover:text-blue-400">Terms of Service</a></li>
+            <li><a href="/privacy" class="hover:text-blue-400">Privacy Policy</a></li>
+            <li><a href="/cookie-policy" class="hover:text-blue-400">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+        <p class="text-gray-400">RSAP – Riders Safety Advocate of the Philippines</p>
+        <p class="text-gray-400">Email: info@rsap.org.ph</p>
+        <p class="text-gray-400">Globe: 0917 678 2016 </br> Smart: 09209601999</p>
+      </div>
+    </div>
+    <div class="text-center mt-12 text-gray-500 text-sm border-t border-blue-900 pt-4">
+      &copy; 2026 RSAP - Riders Safety Advocate of the Philippines. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 900,
+      once: true
+    });
+ </script>
+  <script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-overlay');
+  const closeMenu = document.getElementById('close-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-full');
+    overlay.classList.remove('hidden');
+  });
+
+  closeMenu.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  function closeSidebar() {
+    mobileMenu.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>

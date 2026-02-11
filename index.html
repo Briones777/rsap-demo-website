@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSAP – Riders Safety Advocates of the Philippines</title>
+<link rel="icon" type="image/png" href="images/rsaplogo.png"/>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<style>
+  .text-stroke-blue {
+    -webkit-text-stroke: 1px #0046FF;
+    -webkit-text-fill-color: white;
+  }
+
+  .text-stroke-red {
+    -webkit-text-stroke: 1px #FF0000; /* red outline */
+    -webkit-text-fill-color: white;      /* text color */
+  }
+</style>
+</head>
+
+<body class="bg-[#0b1120] scroll-smooth">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur border-b border-blue-900">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="images/rsaplogo.png" alt="RSAP Logo" class="h-12 w-auto">
+      <span class="text-2xl font-bold text-[#0046FF]">
+        RSAP – Riders Safety Advocates of the Philippines
+      </span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <nav class="hidden md:flex items-center gap-8 text-[#FF0000] font-semibold">
+      <a href="about.html" class="hover:text-blue-400 transition">About</a>
+      <a href="#programs" class="hover:text-blue-400 transition">Programs</a>
+      <a href="#blogs" class="hover:text-blue-400 transition">Blogs</a>
+      <a href="#contact" class="hover:text-blue-400 transition">Contact</a>
+      <a href="#" class="bg-[#0046FF] hover:bg-blue-800 px-5 py-2 rounded-lg transition text-white">
+        Join
+      </a>
+    </nav>
+
+<button id="menu-btn" class="md:hidden text-blue-600 focus:outline-none">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="h-7 w-7" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor">
+    <path stroke-linecap="round" 
+          stroke-linejoin="round" 
+          stroke-width="2" 
+          d="M4 6h16M4 12h16M4 18h16"/>
+  </svg>
+</button>
+
+<!-- Mobile Menu -->>
+<div id="mobile-overlay" 
+     class="fixed inset-0 bg-black/50 hidden z-40"></div>
+
+<!-- Mobile Slide Menu -->
+<div id="mobile-menu"
+     class="fixed top-0 right-0 h-full w-72 
+            bg-black 
+            shadow-2xl
+            transform translate-x-full 
+            transition-transform duration-300 
+            z-[9999] md:hidden">
+
+  <div class="bg-black p-6 space-y-6 text-red-500 font-bold">
+    <button id="close-menu" class="text-red-600 text-3xl">&times;</button>
+
+    <a href="about.html" class="block text-red-700 hover:text-blue-400">About</a>
+    <a href="#programs" class="block text-red-700 hover:text-blue-400">Programs</a>
+    <a href="#blogs" class="block text-red-700 hover:text-blue-400">Blogs</a>
+    <a href="#contact" class="block text-red-700 hover:text-blue-400">Contact</a>
+    <a href="#" class="block bg-blue-700 text-center py-2 rounded-lg hover:bg-blue-800 text-red-700">
+      Join
+    </a>
+  </div>
+</div>
+</header>
+
+<!-- HERO CTA SECTION -->
+<section class="relative min-h-[100vh] flex flex-col items-center justify-center text-center px-6 bg-cover bg-center bg-fixed"
+         style="background-image: url('images/rsapcover.jpg');">
+  
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/70"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto p-8 rounded-xl backdrop-blur-sm text-white" data-aos="fade-up">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-6 text-blue-500">
+      Riders Safety Advocates of the Philippines
+    </h1>
+    <p class="text-lg md:text-xl mb-8">
+      Join our advocacy to promote responsible motorcycle riding, traffic law compliance, and road safety across the Philippines.
+    </p>
+
+    <!-- Buttons Container -->
+    <div class="flex flex-wrap gap-6 justify-center">
+      
+      <!-- Join Button -->
+      <button id="joinBtn" 
+              class="inline-block bg-blue-700 hover:bg-blue-800 text-white px-8 py-4 rounded-lg font-semibold 
+                     transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+        Join the Advocacy
+      </button>
+
+      <!-- Partner Button -->
+      <a href="#" 
+         class="inline-block text-white font-semibold border border-blue-600 bg-blue-700 px-8 py-4 rounded-lg 
+                hover:bg-blue-800 transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg">
+        Partner With Us
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- JOIN MODAL -->
+<div id="joinModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+  <div class="bg-gray-900 rounded-xl shadow-2xl max-w-lg w-full mx-4 p-8 relative" data-aos="fade-up">
+    
+    <!-- Close Button -->
+    <button id="closeModal" class="absolute top-4 right-4 text-white hover:text-red-500 text-2xl font-bold">&times;</button>
+    
+    <!-- Modal Content -->
+    <h3 class="text-2xl font-bold text-blue-500 mb-6 text-center">
+      Join RSAP – Riders Safety Advocates
+    </h3>
+
+    <p class="text-gray-300 mb-6 text-center">
+      Fill in the form below to become a member of our advocacy and receive updates on road safety programs.
+    </p>
+
+    <form id="joinForm" class="space-y-4">
+      <input type="text" name="fullName" placeholder="Full Name" required
+             class="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <input type="email" name="email" placeholder="Email Address" required
+             class="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <input type="text" name="contact" placeholder="Contact Number" required
+             class="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+      
+      <select name="location" required
+              class="w-full px-4 py-3 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+        <option value="" disabled selected>Select your location</option>
+        <option>Metro Manila</option>
+        <option>Luzon</option>
+        <option>Visayas</option>
+        <option>Mindanao</option>
+      </select>
+
+      <button type="submit" 
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg font-semibold 
+                     transition transform hover:-translate-y-1">
+        Submit
+      </button>
+    </form>
+
+    <p class="text-sm text-gray-400 mt-4 text-center">
+      We respect your privacy. Your information will only be used for RSAP membership purposes.
+    </p>
+  </div>
+</div>
+
+<!-- MODAL JS -->
+<script>
+  const joinBtn = document.getElementById("joinBtn");
+  const joinModal = document.getElementById("joinModal");
+  const closeModal = document.getElementById("closeModal");
+  const joinForm = document.getElementById("joinForm");
+
+  // Open modal
+  joinBtn.addEventListener("click", () => {
+    joinModal.classList.remove("hidden");
+    joinModal.classList.add("flex");
+  });
+
+  // Close modal
+  closeModal.addEventListener("click", () => {
+    joinModal.classList.add("hidden");
+    joinModal.classList.remove("flex");
+  });
+
+  // Close modal when clicking outside content
+  joinModal.addEventListener("click", (e) => {
+    if(e.target === joinModal) {
+      joinModal.classList.add("hidden");
+      joinModal.classList.remove("flex");
+    }
+  });
+
+  // Form submission (demo)
+  joinForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Thank you for joining RSAP! We'll be in touch soon.");
+    joinForm.reset();
+    joinModal.classList.add("hidden");
+    joinModal.classList.remove("flex");
+  });
+</script>
+
+
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-[#111827]">
+  <div class="max-w-6xl mx-auto px-6 text-center">
+    <h3 class="text-4xl font-extrabold text-[#FF0000] mb-8 text-stroke-red" data-aos="fade-up">
+      Who We Are
+    </h3>
+    <p class="text-gray-100 text-xl leading-relaxed max-w-4xl mx-auto"
+       data-aos="fade-up" data-aos-delay="200">
+      RSAP (Riders Safety Advocate of the Philippines) is a nationally recognized motorcycle advocacy organization committed to advancing road safety, promoting strict compliance with traffic laws, and fostering responsible riding practices throughout the Philippines. RSAP develops and implements evidence-based educational programs on defensive riding, accident prevention, and rider awareness, while actively safeguarding the rights and welfare of law-abiding motorcyclists. Through strategic collaboration with government agencies, private sector partners, and community stakeholders, RSAP endeavors to cultivate a culture of safety, accountability, and professionalism within the Philippine motorcycling community, positioning itself as a leading authority in motorcycle advocacy and public safety initiatives.
+    </p>
+  </div>
+</section>
+
+<section id="founder" class="py-12 bg-[#111827] text-center px-6">
+  <div class="max-w-6xl mx-auto">
+    <h3 class="text-4xl font-bold text-blue-500 mb-12" data-aos="fade-up">
+      <span class="text-red-700">Founder:</span> Colonel Bonifacio Laqui Bosita
+    </h3>
+
+    <div class="flex flex-col md:flex-row items-center gap-8">
+
+      <!-- Image Column (50%) -->
+      <div class="w-full md:w-1/2 flex items-center justify-center">
+        <div class="w-64 h-auto rounded-xl overflow-hidden bg-gray-700 flex items-center justify-center">
+          <img src="images/col.bosita.png" alt="Col. Bonifacio Bosita" class="max-w-full max-h-full object-contain">
+        </div>
+      </div>
+
+      <!-- Biography Column (50%) -->
+      <div class="w-full md:w-1/2 text-left text-gray-200 space-y-4 text-lg" data-aos="fade-up" data-aos-delay="200">
+        <p>
+          Colonel <strong>Bonifacio Laqui Bosita</strong> (born November 30, 1966) is a Filipino motorcycle rights activist, retired police officer,
+          politician, and founder of <strong>Riders Safety Advocates of the Philippines (RSAP)</strong>, an organization dedicated to promoting
+          road safety and protecting the rights and welfare of motorcyclists nationwide.
+        </p>
+
+        <p>
+          A graduate of Civil Engineering and holder of a Master’s degree in Management (major in Development and Security), Bosita served
+          with the Philippine National Police (PNP), including assignments with the Highway Patrol Group. His advocacy work — particularly
+          on behalf of riders facing unfair traffic enforcements — led him to found RSAP and build a strong online community through his
+          YouTube channel “Colonel Bosita, RSAP,” where he educates the public on traffic rules and riders’ rights.
+        </p>
+
+        <p>
+          Bosita also served as a representative of the <strong>1‑Rider Partylist</strong> in the Philippine House of Representatives from
+          2022 to 2025, advocating for riders’ rights and road safety reforms within government.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Programs Section -->
+<section 
+  class="relative min-h-[70vh] flex flex-col items-center justify-start md:justify-center text-center px-6 py-12 md:py-24 bg-cover bg-center bg-fixed"
+  style="background-image: url('images/rsapcover.jpg');">
+
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6">
+    <h3 class="text-4xl font-extrabold text-[#FF0000] mb-8 text-stroke-red" data-aos="fade-up">
+      National Programs
+    </h3>
+
+    <div class="grid md:grid-cols-3 gap-10">
+      <div class="bg-[#111827]/70 backdrop-blur-sm p-8 rounded-xl border border-blue-900"
+           data-aos="fade-left">
+        <h4 class="text-2xl font-bold mb-4 text-[#0046FF]">Road Safety Seminars</h4>
+        <p class="text-gray-300 text-lg">Defensive riding education and nationwide traffic law awareness programs.</p>
+      </div>
+
+      <div class="bg-[#111827]/70 backdrop-blur-sm p-8 rounded-xl border border-blue-900"
+           data-aos="fade-right" data-aos-delay="150">
+        <h4 class="text-2xl font-bold mb-4 text-[#0046FF]">LTO Compliance Advocacy</h4>
+        <p class="text-gray-300 text-lg">Guidance on proper documentation and lawful riding.</p>
+      </div>
+
+      <div class="bg-[#111827]/70 backdrop-blur-sm p-8 rounded-xl border border-blue-900"
+           data-aos="fade-left" data-aos-delay="300">
+        <h4 class="text-2xl font-bold mb-4 text-[#0046FF]">LGU & Agency Partnerships</h4>
+        <p class="text-gray-300 text-lg">Collaborating with government units nationwide.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Hero Slider Section -->
+<section class="bg-[#111827] relative overflow-hidden">
+  <div class="flex justify-center px-4 md:px-24 py-8 md:py-16" data-aos="Auto-Fade">
+    <!-- Slide container -->
+    <div class="relative w-full max-w-5xl rounded-xl overflow-hidden h-[300px] sm:h-[400px] md:h-[500px]">
+      <!-- Slides -->
+      <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-100 bg-cover bg-center"
+           style="background-image: url('images/rsapsem1.png');" alt="seminars"></div>
+
+      <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+           style="background-image: url('images/rsapsem2.png');" alt="seminars"></div>
+
+      <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+           style="background-image: url('images/rsapsem3.png');" alt="seminars"></div>
+       
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem4.png');" alt="seminars"></div>
+      
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem5.png');" alt="seminars"></div>
+      
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem6.png');" alt="seminars"></div>
+       
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem7.png');" alt="seminars"></div>
+
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem8.png');" alt="seminars"></div>
+
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem9.png');" alt="seminars"></div>
+
+        <div class="absolute inset-0 transition-opacity duration-1000 slide opacity-0 bg-cover bg-center"
+            style="background-image: url('images/rsapsem10.png');" alt="seminars"></div>
+    </div>
+</section>
+
+<!-- JS for Auto-Fade Slider -->
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showNextSlide() {
+    slides[current].classList.remove('opacity-100');
+    slides[current].classList.add('opacity-0');
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.remove('opacity-0');
+    slides[current].classList.add('opacity-100');
+  }
+
+  setInterval(showNextSlide, 5000); // change every 5 seconds
+</script>
+
+
+<!-- MISSION -->
+<section id="mission" class="bg-[#111827] text-center py-8 md:py-24">
+
+  <div class="max-w-5xl mx-auto px-6">
+    <h3 class="text-4xl font-extrabold text-[#FF0000] mb-8 text-stroke-red"
+        data-aos="fade-up">
+      Our Mission
+    </h3>
+    <p class="text-gray-300 text-xl leading-relaxed"
+       data-aos="fade-up" data-aos-delay="200">
+      Our Purpose: To significantly reduce motorcycle-related accidents in the Philippines by fostering disciplined and responsible riding, ensuring strict adherence to traffic laws, and providing continuous, evidence-based education and training for riders. Through advocacy, community engagement, and awareness campaigns, we aim to cultivate a culture of safety, accountability, and proactive risk management among Filipino motorcyclists.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="relative min-h-[50vh] flex items-center justify-center text-center px-6 bg-cover bg-center bg-fixed" data-aos="Auto-Fade"
+style="background-image: url('images/rsapcover.jpg');">
+
+  <div data-aos="fade-up">
+    <h3 class="text-4xl font-extrabold text-[#FF0000] mb-8 text-stroke-red">
+      Be a Responsible Rider
+    </h3>
+    <a href="#" class="bg-gray-200 text-blue-800 px-10 py-4 rounded-lg font-extrabold hover:bg-gray-200 transition">
+      Become a Member Today
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-300 py-12 relative">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:justify-between md:items-start gap-8">
+
+    <!-- Logo & Name -->
+    <div class="flex items-center space-x-4 md:w-1/4">
+      <img src="images/rsaplogo.png" alt="RSAP Logo" class="w-14 h-14 object-contain">
+      <span class="text-blue-600 text-2xl font-bold">RSAP <span class="text-[#FF0000] text-sm font-semibold"> Riders Safety Advocate of the Philippines</span>
+    </div>
+
+    <!-- Footer Links -->
+    <div class="flex-1 grid md:grid-cols-3 gap-8">
+
+      <!-- Sitemap / Navigation -->
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Sitemap</h4>
+        <ul class="space-y-2">
+          <li><a href="#home" class="hover:text-blue-400">Home</a></li>
+          <li><a href="#programs" class="hover:text-blue-400">Programs</a></li>
+          <li><a href="about.html" class="hover:text-blue-400">About Us</a></li>
+          <li><a href="#blogs" class="hover:text-blue-400">Blogs</a></li>
+        </ul>
+      </div>
+
+      <!-- Legal & Policies -->
+      <div>
+        <h4 class="text-lg font-semibold text-white mb-4">Legal & Policies</h4>
+        <ul class="space-y-2">
+          <li><a href="/terms" class="hover:text-blue-400">Terms of Service</a></li>
+          <li><a href="/privacy" class="hover:text-blue-400">Privacy Policy</a></li>
+          <li><a href="/cookie-policy" class="hover:text-blue-400">Cookie Policy</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Contact / Info -->
+    <div>
+      <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+      <p class="text-gray-400">RSAP – Riders Safety Advocate of the Philippines</p>
+      <p class="text-gray-400">Email: info@rsap.org.ph</p>
+      <p class="text-gray-400">Globe: 0917 678 2016 </br> Smart: 09209601999</p>
+    </div>
+
+  </div>
+
+  <div class="text-center mt-12 text-gray-500 text-sm border-t border-blue-900 pt-4">
+    &copy; 2026 RSAP - Riders Safety Advocate of the Philippines. All rights reserved.
+  </div>
+</footer>
+
+<!-- Cookie Consent -->
+<div id="cookie-banner"
+     class="fixed bottom-0 left-0 w-full 
+            bg-black text-white 
+            px-6 py-4 
+            flex flex-col md:flex-row 
+            items-center justify-between 
+            gap-4 
+            z-50 shadow-2xl">
+
+  <p class="text-sm text-gray-300">
+    This website uses cookies to improve your browsing experience and ensure site functionality.
+  </p>
+
+  <button id="accept-cookies"
+          class="bg-blue-600 hover:bg-blue-700 
+                 px-5 py-2 rounded-lg 
+                 transition transform hover:-translate-y-1">
+    Accept
+  </button>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const cookieBanner = document.getElementById("cookie-banner");
+  const acceptBtn = document.getElementById("accept-cookies");
+
+  if (!cookieBanner || !acceptBtn) return;
+
+  // Hide if already accepted
+  if (localStorage.getItem("cookiesAccepted") === "true") {
+    cookieBanner.style.display = "none";
+  }
+
+  acceptBtn.addEventListener("click", function () {
+    localStorage.setItem("cookiesAccepted", "true");
+    cookieBanner.style.display = "none";
+  });
+
+});
+</script>
+
+
+
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 900,
+    once: true
+  });
+</script>
+
+<!-- Floating Buttons Container -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-4">
+
+  <!-- Chatbot Button -->
+  <button id="openChat" class="w-12 h-12 rounded-full animate-bounce hover:shadow-xl hover:shadow-blue-700 shadow-lg flex items-center justify-center z-50 overflow-hidden">
+    <img src="images/rsaplogo.png" alt="RSAP Logo" class="w-12 h-12 object-contain">
+  </button>
+
+  <!-- Facebook Button -->
+  <a href="https://www.facebook.com/PoliceColBonifacioBosita" target="_blank"
+     class="w-12 h-12 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg flex items-center animate-bounce justify-center text-white z-40">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" class="w-12 h-12">
+      <path d="M22 12a10 10 0 1 0-11.5 9.9v-7h-2v-3h2v-2.3c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.3V12h2.2l-.3 3h-1.9v7A10 10 0 0 0 22 12z"/>
+    </svg>
+  </a>
+
+</div>
+
+<!-- Chat Window -->
+<div id="chatWindow" class="hidden fixed bottom-24 right-6 w-80 h-96 bg-[#111827] rounded-xl shadow-lg overflow-hidden z-50">
+  <div class="bg-blue-600 p-4 text-white font-semibold flex justify-between items-center">
+    <span>RSAP Chat Assistant</span>
+    <button id="closeChat" class="text-white hover:text-gray-200">&times;</button>
+  </div>
+  <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-2">
+    <div class="text-gray-300 text-sm">Hello! I can help you with motorcycle rules, regulations, and riding assistance. Ask me a question!</div>
+  </div>
+  <div class="p-4 border-t border-gray-700 flex gap-2">
+    <input id="chatInput" type="text" placeholder="Type your question..."
+           class="flex-1 px-3 py-2 rounded-lg bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm">
+    <button id="sendChat" class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm">Send</button>
+  </div>
+</div>
+
+<script>
+  const openChat = document.getElementById('openChat');
+  const closeChat = document.getElementById('closeChat');
+  const chatWindow = document.getElementById('chatWindow');
+  const chatMessages = document.getElementById('chatMessages');
+  const chatInput = document.getElementById('chatInput');
+  const sendChat = document.getElementById('sendChat');
+
+  openChat.addEventListener('click', () => chatWindow.classList.toggle('hidden'));
+  closeChat.addEventListener('click', () => chatWindow.classList.add('hidden'));
+
+  const faq = {
+    "helmet": "All motorcycle riders must wear a standard safety helmet under RA 10054.",
+    "licensing": "You need a valid driver’s license for motorcycles (LTO-issued).",
+    "insurance": "Motorcycles must have third-party liability insurance as per Philippine law.",
+    "speed": "Follow posted speed limits and drive responsibly at all times.",
+    "lanes": "Motorcycles must ride within the lane and not weave dangerously between cars.",
+    "registration": "All motorcycles must be registered with the LTO and display valid plates."
+  };
+
+  function sendMessage() {
+    const userMessage = chatInput.value.trim();
+    if (!userMessage) return;
+
+    const userDiv = document.createElement('div');
+    userDiv.className = "text-white text-sm text-right";
+    userDiv.textContent = userMessage;
+    chatMessages.appendChild(userDiv);
+
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+    let response = "Sorry, I don't have an answer for that. Please check our official RSAP guidelines.";
+    const key = Object.keys(faq).find(k => userMessage.toLowerCase().includes(k));
+    if (key) response = faq[key];
+
+    const botDiv = document.createElement('div');
+    botDiv.className = "text-gray-300 text-sm";
+    botDiv.textContent = response;
+    chatMessages.appendChild(botDiv);
+
+    chatInput.value = "";
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  sendChat.addEventListener('click', sendMessage);
+  chatInput.addEventListener('keypress', e => { if(e.key === 'Enter') sendMessage(); });
+</script>
+
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-overlay');
+  const closeMenu = document.getElementById('close-menu');
+
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.remove('translate-x-full');
+    overlay.classList.remove('hidden');
+  });
+
+  closeMenu.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+
+  function closeSidebar() {
+    mobileMenu.classList.add('translate-x-full');
+    overlay.classList.add('hidden');
+  }
+</script>
+
+</body>
+</html>
